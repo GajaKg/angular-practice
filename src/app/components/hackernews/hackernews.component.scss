@@ -1,0 +1,11 @@
+.loader {
+  position: fixed;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  padding: 20px 100px;
+  justify-content: center;
+  align-items: center;
+  background: lightgray;
+}

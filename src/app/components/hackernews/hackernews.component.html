@@ -1,0 +1,21 @@
+<p>hackernews works!</p>
+<button (click)="loadMore()">Load more</button>
+@if(news().length) {
+<ul>
+@for (item of news(); track $index;) {
+  <li style="border-bottom: 2px solid red; margin-bottom: 30px">
+    <a [href]="item.url" target="_blank" style="text-decoration: none">
+      <div style="font-weight: bolder;">{{$index}}</div>
+      <div>{{ item.time | date : "fullDate" }}</div>
+      <h2>{{ item.id }}. {{ item.title }}</h2>
+      <p>Score: {{ item.score }}</p>
+    </a>
+  </li>
+}
+</ul>
+} @else {
+<h3>Loading...</h3>
+}
+@if (isLoading()) {
+  <h3 class="loader">Loading...</h3>
+}
