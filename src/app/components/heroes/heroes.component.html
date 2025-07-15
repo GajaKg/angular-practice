@@ -1,0 +1,34 @@
+<h1>Heroes list!</h1>
+<input placeholder="Find hero" [(ngModel)]="search" (input)="filterHeroes()" />
+<!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <input
+    placeholder="Find hero"
+    formControlName="searchStr"
+    [(ngModel)]="search"
+  />
+</form> -->
+<p>{{ search }}</p>
+<!-- <input placeholder="Find hero" [(ngModel)]="searchStr" formControlName="searchStr"/> -->
+<div style="display: flex">
+  <ol>
+    @for (hero of heroesFilter$ | async; track hero) {
+    <li>
+      {{ hero.name }}
+    </li>
+    }
+  </ol>
+  <ol>
+    @for (heroo of heroes$ | async; track heroo) {
+    <li>
+      {{ heroo.name }}
+    </li>
+    }
+  </ol>
+  <ol>
+    @for (herongrx of heroesNgrx$ | async; track herongrx) {
+    <li>
+      {{ herongrx.name }}
+    </li>
+    }
+  </ol>
+</div>
