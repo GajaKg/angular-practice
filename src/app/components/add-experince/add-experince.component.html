@@ -1,0 +1,154 @@
+<div class="p-5 bg-white dark:bg-gray-900 antialiased">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="max-w-lg mx-auto">
+    <div class="mb-5">
+      <label
+        for="title"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Title*</label
+      >
+      <input
+        id="title"
+        formControlName="title"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Ex: Frontend developer"
+        required
+      />
+      @if (title?.dirty && title?.invalid) {
+      <span class="text-sm text-red-400"
+        >Title is required, min 3 chars length</span
+      >
+      }
+    </div>
+    <div class="mb-5">
+      <label
+        for="employmentType"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Employment type</label
+      >
+      <select
+        id="employmentType"
+        formControlName="employmentType"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        required
+      >
+        <option value="">Please select</option>
+        <option value="full">Full time</option>
+        <option value="part">Part time</option>
+        <option value="b2b">B2B</option>
+      </select>
+    </div>
+    <div class="mb-5">
+      <label
+        for="organization"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Organization*</label
+      >
+      <input
+        id="organization"
+        formControlName="organization"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Ex: Microsoft"
+        required
+      />
+      @if (organization?.dirty && organization?.invalid) {
+      <span class="text-sm text-red-400"
+        >Title is required, min 3 chars length</span
+      >
+      }
+    </div>
+    <div class="flex items-start mb-5">
+      <div class="flex items-center h-5">
+        <input
+          (change)="onWorkingClicked()"
+          id="working"
+          type="checkbox"
+          formControlName="working"
+          value=""
+          class="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+          required
+        />
+      </div>
+      <label
+        for="working"
+        class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        >Currently working in this role</label
+      >
+    </div>
+    <div class="flex gap-2">
+      <div class="w-full mb-5">
+        <label
+          for="startMonth"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Start date</label
+        >
+        <select
+          id="startMonth"
+          formControlName="startMonth"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Ex: Frontend developer"
+          required
+        >
+          <option>Month</option>
+        </select>
+        @if ((startYear?.dirty || startYear?.touched) && startYear?.invalid) {
+        <span class="text-sm text-red-400"
+          >Please select start month and year</span
+        >
+        }
+      </div>
+      <div class="w-full mb-5">
+        <label
+          for="startYear"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Start year</label
+        >
+        <select
+          id="startYear"
+          formControlName="startYear"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required
+        >
+          <option>Year</option>
+        </select>
+      </div>
+    </div>
+    <div class="flex gap-2">
+      <div class="w-full mb-5">
+        <label
+          for="endtMonth"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >End date</label
+        >
+        <select
+          id="endtMonth"
+          formControlName="endMonth"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required
+        >
+          <option>Month</option>
+        </select>
+      </div>
+      <div class="w-full mb-5">
+        <label
+          for="endYear"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >End year</label
+        >
+        <select
+          id="endYear"
+          formControlName="endYear"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required
+        >
+          <option>Year</option>
+        </select>
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    >
+      Submit
+    </button>
+  </form>
+</div>

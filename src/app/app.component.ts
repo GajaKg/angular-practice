@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject } from '@angular/core';
+import { Component, DestroyRef, inject, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 import { HeroesService } from './services/Heroes.service';
 import { Heroes } from './models/Hero.interface';
@@ -9,7 +9,8 @@ import { HeroesApiAction } from './store/heroes.actions';
   selector: 'app-root',
   imports: [RouterOutlet, RouterLink],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
 

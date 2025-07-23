@@ -5,6 +5,7 @@ import { HackernewsComponent } from './components/hackernews/hackernews.componen
 export enum Route {
   Heroes = 'heroes',
   Hackernews = 'hackernews',
+  AddExperince = 'addexperince',
 }
 export const routes: Routes = [
   {
@@ -14,5 +15,11 @@ export const routes: Routes = [
   {
     path: Route.Hackernews,
     component: HackernewsComponent
+  },
+  {
+    path: Route.AddExperince,
+    loadComponent: () =>
+      import('../app/components/add-experince/add-experince.component')
+        .then(m => m.AddExperinceComponent)
   },
 ];

@@ -52,7 +52,7 @@ export const NewsSearchStore = signalStore(
               return of([]);
             }
             const firstTenIDs = newsIDs.slice(0, 10);
-            console.log('Received news IDs:', firstTenIDs);
+            // console.log('Received news IDs:', firstTenIDs);
             patchState(store, { newsListID: newsIDs });
             // Process each ID with proper error handling
             return from(firstTenIDs).pipe(

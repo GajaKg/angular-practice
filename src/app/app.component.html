@@ -12,9 +12,10 @@
     <a routerLink="/" routerLinkActive="router-link-active">Home</a>
     <a routerLink="/heroes">Heroess</a>
     <a routerLink="/hackernews">Hacker news</a>
+    <a routerLink="/addexperince">Add Experience</a>
   </div>
   <div>
-    <div class="content">
+    <div class="content w-full justify-center">
       <router-outlet />
     </div>
   </div>
@@ -85,13 +86,6 @@
     position: relative;
   }
 
-  .content {
-    display: flex;
-    /* justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;*/
-  }
 
   .content h1 {
     margin-top: 1.75rem;
