@@ -1,18 +1,17 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 <main class="main">
-  <div style="border: 1px solid red;">
+  <div style="border: 1px solid red">
     <a routerLink="/" routerLinkActive="router-link-active">Home</a>
     <a routerLink="/heroes">Heroess</a>
     <a routerLink="/hackernews">Hacker news</a>
     <a routerLink="/addexperince">Add Experience</a>
+    @if (isLogedin()) {
+    <a routerLink="/stockmarket">Stockmarket {{ isLogedin() }}</a>
+    }
+    <span><------></span>
+    <a routerLink="/register">Register</a>
+    <a routerLink="/login">Login</a>
+    <span>---||---</span>
+    <span (click)="onLogout()" class="inline-block ml-3">Logout</span>
   </div>
   <div>
     <div class="content w-full justify-center">
@@ -85,7 +84,6 @@
     box-sizing: inherit;
     position: relative;
   }
-
 
   .content h1 {
     margin-top: 1.75rem;

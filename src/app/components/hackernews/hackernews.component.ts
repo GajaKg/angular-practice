@@ -1,12 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, HostListener, inject, OnInit, Signal } from '@angular/core';
 import { NewsSearchStore } from '../../store/news.store';
 import { News } from '../../models/News.interface';
-import { AsyncPipe, DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { Scroll } from '@angular/router';
 
 @Component({
   selector: 'app-hackernews',
-  providers: [NewsSearchStore],
   imports: [DatePipe],
   templateUrl: './hackernews.component.html',
   styleUrl: './hackernews.component.scss',

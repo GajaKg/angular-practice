@@ -23,6 +23,7 @@ const initialState: NewsSearchState = {
 };
 
 export const NewsSearchStore = signalStore(
+  { providedIn: 'root' },
   withState(initialState),
   withComputed(({ news, filter }) => ({
     allNews: computed(() => news()),

@@ -1,4 +1,4 @@
-import { Component, inject, NgModule, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { Component, computed, inject, NgModule, OnInit, Pipe, PipeTransform, Signal } from '@angular/core';
 import { HeroesService } from '../../services/Heroes.service';
 import { Heroes } from '../../models/Hero.interface';
 import { debounceTime, distinctUntilChanged, filter, map, Observable, tap } from 'rxjs';
@@ -12,7 +12,6 @@ import {
 } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { selectAllHeroes, selectVisibleHeroes } from '../../store/heroes.selector';
-
 @Component({
   standalone: true,
   selector: 'app-heroes',
@@ -35,7 +34,6 @@ export class HeroesComponent implements OnInit {
 
   ngOnInit() {
     // this.searchForm();
-
   }
 
   filterHeroes() {
